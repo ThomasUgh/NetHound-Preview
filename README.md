@@ -95,6 +95,54 @@ NetHound nutzt einen **hybriden Ansatz** für maximale Flexibilität:
 ```
 ---
 
+### Multi-Source API Integration
+
+NetHound kombiniert mehrere Datenquellen für umfassende Reconnaissance:
+```javascript
+// Multi-Source Subdomain Enumeration
+class SubdomainEnumerator {
+    async enumerate(domain) {
+        const results = {
+            domain,
+            sources: {},
+            allSubdomains: new Set(),
+            withIps: []
+        };
+
+        // Source 1: Certificate Transparency
+        try {
+            const crtResult = await this.crtsh.getSubdomains(domain);
+            results.sources.crtsh = crtResult.subdomains || [];
+            (crtResult.subdomains || []).forEach(s => 
+                results.allSubdomains.add(s.toLowerCase())
+            );
+        } catch {}
+
+        // Source 2: DNS Brute-Force
+        try {
+            const dnsResult = await this.dnsBruteforce(domain);
+            results.sources.dns = dnsResult;
+            dnsResult.forEach(s => results.allSubdomains.add(s));
+        } catch {}
+
+        // Source 3: Web Scraping
+        try {
+            const scraperResult = await this.webScraper(domain);
+            results.sources.scraper = scraperResult;
+            scraperResult.forEach(s => results.allSubdomains.add(s));
+        } catch {}
+
+        return {
+            ...results,
+            allSubdomains: Array.from(results.allSubdomains).sort(),
+            totalCount: results.allSubdomains.size
+        };
+    }
+}
+```
+
+---
+
 ## 💡 Usage-Beispiele
 
 ### 1. Vollständiger Subdomain-Scan
