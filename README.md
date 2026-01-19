@@ -24,7 +24,7 @@ Gebaut mit Electron für Windows, Linux & macOS.
 
 ### Tool-Übersicht
 ![NetHound Tools Overview](https://i.ibb.co/BV4t7j1T/323232332.png)
-*62 Tools in 8 Kategorien organisiert*
+*62+ Tools in 8 Kategorien organisiert*
 
 </td>
 <td width="50%">
@@ -55,7 +55,7 @@ Gebaut mit Electron für Windows, Linux & macOS.
 
 ---
 
-## ✨ Highlights v2.6
+## ✨ Eigenschaften - v2.6
 
 🌍 **Multi-Language Support** - Vollständig auf Deutsch & Englisch  
 🌓 **Dark & Light Mode** - Neon-Theme mit Farbakzenten  
