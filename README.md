@@ -93,6 +93,20 @@ NetHound nutzt einen **hybriden Ansatz** für maximale Flexibilität:
               │  & Formatierung     │
               └─────────────────────┘
 ```
+---
+
+## 💡 Usage-Beispiele
+
+### 1. Vollständiger Subdomain-Scan
+```bash
+Domain: example.com
+Methoden: DNS Enumeration + Brute-Force + Certificate Transparency
+
+Ergebnis:
+✓ 247 Subdomains gefunden
+✓ 189 aktive IPs
+✓ 12 Cloudflare-geschützte Hosts
+```
 
 ---
 
